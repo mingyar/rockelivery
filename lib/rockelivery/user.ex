@@ -23,11 +23,11 @@ defmodule Rockelivery.User do
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(struct \\ %__MODULE__{}, params) do
+    struct
     |> cast(params, @required_params)
     |> validate_required(@required_params)
-    |> validate_length(:password_hash, min: 6)
+    |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
     |> validate_number(:age, greater_than_or_equal_to: 18)
