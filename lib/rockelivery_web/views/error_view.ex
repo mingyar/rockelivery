@@ -4,7 +4,6 @@ defmodule RockeliveryWeb.ErrorView do
   import Ecto.Changeset, only: [traverse_errors: 2]
 
   alias Ecto.Changeset
-  alias Rockelivery.Error
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
@@ -19,11 +18,11 @@ defmodule RockeliveryWeb.ErrorView do
     %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}
   end
 
-  def render("error.json", %Error{result: %Changeset{} = changeset}) do
+  def render("error.json", %{result: %Changeset{} = changeset}) do
     %{message: translate_errors(changeset)}
   end
 
-  def render("error.json", %Error{result: result}) do
+  def render("error.json", %{result: result}) do
     %{message: result}
   end
 
