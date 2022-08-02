@@ -1,10 +1,10 @@
-defmodule Rockelivery.Users.Delete do
+defmodule Rockelivery.Users.Get do
   alias Rockelivery.{Error, Repo, User}
 
-  def call(id) do
+  def by_id(id) do
     case Repo.get(User, id) do
       nil -> {:error, Error.build_user_not_found_error()}
-      user -> Repo.delete(user)
+      user -> {:ok, user}
     end
   end
 end
