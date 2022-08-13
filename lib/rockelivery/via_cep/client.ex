@@ -2,7 +2,10 @@ defmodule Rockelivery.ViaCep.Client do
   use Tesla
 
   alias Rockelivery.Error
+  alias Rockelivery.ViaCep.Behaviour
   alias Tesla.Env
+
+  @behaviour Behaviour
 
   @base_url "https://viacep.com.br/ws/"
   plug Tesla.Middleware.JSON
@@ -13,7 +16,7 @@ defmodule Rockelivery.ViaCep.Client do
     |> handle_get()
   end
 
-  defp handle_get({:ok, %Env{status: 200, body: %{"erro" => "true"}}}) do
+  defp handle_get({:ok, %Env{status: 200, body: %{"error" => "true"}}}) do
     {:error, Error.build(:not_found, "CEP not found!")}
   end
 
