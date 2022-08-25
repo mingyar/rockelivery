@@ -1,5 +1,5 @@
 defmodule Rockelivery.Users.Create do
-  alias Rockelivery.{Error, Repo, User, ViaCep.Client}
+  alias Rockelivery.{Error, Repo, User}
 
   def call(params) do
     cep = Map.get(params, "cep")
@@ -10,7 +10,7 @@ defmodule Rockelivery.Users.Create do
          {:ok, %User{}} = user <- Repo.insert(changeset) do
       user
     else
-      {:error, %Error{} = error} -> error
+      {:error, %Error{}} = error -> error
       {:error, result} -> {:error, Error.build(:bad_request, result)}
     end
   end

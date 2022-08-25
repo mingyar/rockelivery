@@ -20,7 +20,6 @@ defmodule Rockelivery.User do
     field :password, :string, virtual: true
     field :password_hash, :string
     field :name, :string
-
     has_many :orders, Order
 
     timestamps()
