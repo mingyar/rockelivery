@@ -1,9 +1,10 @@
 defmodule Rockelivery.Item do
   use Ecto.Schema
+
   import Ecto.Changeset
 
-  alias Rockelivery.Order
   alias Ecto.Enum
+  alias Rockelivery.Order
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
