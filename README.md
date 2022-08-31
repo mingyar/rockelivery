@@ -1,5 +1,7 @@
 # Rockelivery
 
+[![codecov](https://codecov.io/gh/mingyar/rockelivery/branch/main/graph/badge.svg?token=0T9LIBFEDI)](https://codecov.io/gh/mingyar/rockelivery)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
